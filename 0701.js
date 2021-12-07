@@ -24,7 +24,7 @@ let positions
         return fuel
       })
       .reduce((acc, val) => acc + val)
-    minFuel = Math.min(minFuel, fuel)
+    minFuel = Math.min(fuel, minFuel)
   }
 
   console.log('result:', minFuel)
