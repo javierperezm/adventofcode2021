@@ -1,17 +1,36 @@
 import { createGlobalStyle } from 'styled-components'
+import { colors } from './theme'
 
 export const GlobalStyle = createGlobalStyle`
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Source Code Pro", monospace;
+    background: ${colors.background};
+    color: ${colors.primaryText}
 }
 
 a {
-  color: inherit;
+  color: ${colors.primaryLink};
+  cursor: pointer;
   text-decoration: none;
+
+  &:hover {
+    color: ${colors.hoverLink};
+  }
+}
+
+h1 {
+
+    & > a {
+        color: ${colors.boldLink};
+        text-shadow: 0 0 2px ${colors.boldLink}, 0 0 5px ${colors.boldLink}
+    }
+}
+
+h2 {
+    color: ${colors.boldText};
 }
 
 * {

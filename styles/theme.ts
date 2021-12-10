@@ -11,3 +11,14 @@ export const GradientColors = [
   '#450000', // 9
   '#00AA00', // 10
 ]
+
+export const colors = {
+  background: '#0f0f23',
+  primaryText: '#cccccc',
+  boldText: '#ffffff',
+  primaryLink: '#009900',
+  boldLink: '#00cc00',
+  hoverLink: '#99ff99',
+  star: '#ffff66',
+  errorText: '#ff0000',
+}
