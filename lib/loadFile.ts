@@ -1,4 +1,4 @@
-import { IOnLoad } from '../types'
+import { IOnLoad } from './types'
 
 export const loadFile = (filename: string, onLoad: IOnLoad) => {
   fetch(filename).then((response) =>

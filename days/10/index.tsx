@@ -1,11 +1,10 @@
+import ActionButton from 'components/ActionButton'
 import ChallengeLayout from 'layouts/ChallengeLayout'
+import { loadFile } from 'lib/loadFile'
 import type { NextPage } from 'next'
-import Link from 'next/link'
 import { MouseEventHandler, useEffect, useState } from 'react'
-import { Button } from './10.styles'
 import ChunksCanvas from './components/ChunkCanvas'
 import { ChunksProcessor } from './lib/ChunkProcessor'
-import { loadFile } from './lib/loadFile'
 import { IStringChunk } from './types'
 
 const Day10: NextPage = () => {
@@ -25,24 +24,11 @@ const Day10: NextPage = () => {
 
   return (
     <ChallengeLayout
-      title={
-        <>
-          <Link href="/">
-            <a>&laquo;</a>
-          </Link>
-          <span> Day 10: </span>
-          <a
-            href="https://adventofcode.com/2021/day/10"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Syntax Scoring
-          </a>
-        </>
-      }
+      title="Syntax Scoring"
+      day={10}
       canvas={chunks ? <ChunksCanvas stringChunks={stringChunks} /> : <div />}
     >
-      <Button onClick={handleCorruptedClick}>START</Button>
+      <ActionButton onClick={handleCorruptedClick}>START</ActionButton>
     </ChallengeLayout>
   )
 }

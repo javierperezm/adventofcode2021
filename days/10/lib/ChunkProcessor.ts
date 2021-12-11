@@ -1,4 +1,5 @@
-import { IChunkProcessorDoTick, IMapStringNumber, IStringChunk } from '../types'
+import { IMapStringNumber } from 'lib/types'
+import { IChunkProcessorDoTick, IStringChunk } from '../types'
 import { Chunk } from './Chunk'
 import { ChunkLine } from './ChunkLine'
 

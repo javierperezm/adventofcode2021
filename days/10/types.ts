@@ -7,11 +7,3 @@ export interface IStringChunk {
   current: string | null
   corrupted: string | null
 }
-
-export interface IMapStringNumber {
-  [key: string]: number
-}
-
-export interface IOnLoad {
-  (data: string[]): void
-}

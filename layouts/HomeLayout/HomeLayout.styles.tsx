@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { colors } from 'styles/theme'
 
 export const HomeTitle = styled.h1`
   text-align: center;
+  margin: 25px 0;
 `
 
 /* 1: 1st is monday */
@@ -22,6 +22,7 @@ export const Calendar = styled.div<{ dowStart: number }>`
 export const CalendarDay = styled.span`
   text-align: center;
   font-size: 1.5em;
+  padding: 10px 5px;
 `
 
 export const Main = styled.main`

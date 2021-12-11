@@ -1,12 +1,7 @@
+import { IPoint } from 'lib/types'
 import { useEffect, useState } from 'react'
-import { isPromise } from 'util/types'
 
 export type TMatrixData = number[][]
-
-export interface IPoint {
-  x: number
-  y: number
-}
 
 interface IGetHeight {
   (point: IPoint): number

@@ -8,9 +8,10 @@ import {
   Main,
 } from './HomeLayout.styles'
 
-const HomeLayout = () => {
-  const availableDays = [10]
-
+interface IHomeLayoutProps {
+  availableDays: number[]
+}
+const HomeLayout = ({ availableDays }: IHomeLayoutProps) => {
   return (
     <div>
       <Head>
@@ -58,6 +59,10 @@ const HomeLayout = () => {
             Javier Pérez
           </a>
         </h4>
+        <h6>
+          nice icons from <a href="https://www.freepik.com/">freepik</a>&nbsp;|
+          made with love from &#127464;&#127469;
+        </h6>
       </Footer>
     </div>
   )
