@@ -4,7 +4,6 @@ export class Matrix {
   data: NumbersMatrix
 
   constructor(data: NumbersMatrix) {
-    //this.data = data.map((line) => line.split('').map((val) => parseInt(val)))
     this.data = data
   }
 

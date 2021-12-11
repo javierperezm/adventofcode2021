@@ -20,17 +20,27 @@ const ScoresUI = ({ scores }: { scores: IScores }) => {
         </ScoresTitle>
         <ScoresValue>{scores.flashes}</ScoresValue>
 
-        <ScoresTitle>
-          <HundredIcon title="total flashes at 100 steps" />
-        </ScoresTitle>
-        <ScoresValue color={colors.star}>
-          {scores.totalFlashesAt100}
-        </ScoresValue>
+        {scores.totalFlashesAt100 ? (
+          <>
+            <ScoresTitle>
+              <HundredIcon title="total flashes at 100 steps" />
+            </ScoresTitle>
+            <ScoresValue color={colors.star}>
+              {scores.totalFlashesAt100}
+            </ScoresValue>
+          </>
+        ) : null}
 
-        <ScoresTitle>
-          <FireworkIcon title="steps until all octopus flashed" />
-        </ScoresTitle>
-        <ScoresValue color={colors.star}>{scores.stepsAllFlashed}</ScoresValue>
+        {scores.stepsAllFlashed ? (
+          <>
+            <ScoresTitle>
+              <FireworkIcon title="steps until all octopus flashed" />
+            </ScoresTitle>
+            <ScoresValue color={colors.star}>
+              {scores.stepsAllFlashed}
+            </ScoresValue>
+          </>
+        ) : null}
       </ScoresList>
     </div>
   )

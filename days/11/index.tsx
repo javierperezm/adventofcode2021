@@ -9,7 +9,7 @@ import OctopusMatrixCanvas from './components/OctopusMatrixCanvas'
 import { IScores } from './lib/IScores'
 import { Stepper } from './lib/Stepper'
 
-const TICKER_MILISECONDS = 250
+const TICKER_MILISECONDS = 200
 const MAX_STEPS = 999
 
 const Day11: NextPage = () => {
@@ -20,7 +20,6 @@ const Day11: NextPage = () => {
     totalFlashesAt100: 0,
     stepsAllFlashed: 0,
   })
-  const [tickInterval, setTickInterval] = useState<NodeJS.Timer>()
 
   useEffect(() => {
     loadFile('/11.txt', (data) => {
@@ -61,8 +60,6 @@ const Day11: NextPage = () => {
         clearInterval(interval)
       }
     }, TICKER_MILISECONDS)
-
-    setTickInterval(interval)
   }
 
   return (

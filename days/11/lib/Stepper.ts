@@ -8,21 +8,15 @@ export class Stepper {
     this.matrix = new Matrix(matrixData)
   }
 
-  setMatrix = (matrix: Matrix): void => {
-    this.matrix = matrix
-  }
-
   incEnergy = (points: IPoint[], flashed: IPoint[]): void => {
     for (let p = 0; p < points.length; p++) {
       const point = points[p]
       if (Stepper.isPointIncluded(point, flashed)) continue
 
       const energy = this.matrix.incValue(point) as number
-      if (energy > 9 && !Stepper.isPointIncluded(point, flashed)) {
-        // flash
+      if (energy > 9) {
         flashed.push(point)
-        const adjacents = this.matrix.getAdjacents(point)
-        this.incEnergy(adjacents, flashed)
+        this.incEnergy(this.matrix.getAdjacents(point), flashed)
       }
     }
   }
@@ -38,9 +32,6 @@ export class Stepper {
         this.incEnergy([point], flashed)
       }
     }
-
-    // set flashed octopuses to 0
-    //for (let f = 0; f < flashed.length; f++) this.matrix.setPower(flashed[f], 0)
 
     return flashed.length
   }
