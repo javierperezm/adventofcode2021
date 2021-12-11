@@ -1,5 +1,6 @@
 import Matrix from 'components/Matrix'
-import useMatrix, { IPoint } from 'hooks/useMatrix'
+import useMatrix from 'hooks/useMatrix'
+import { IPoint } from 'lib/types'
 import type { NextPage } from 'next'
 import React, { MouseEventHandler, useState } from 'react'
 import { PanelContainer, Result } from './Day09.styles'

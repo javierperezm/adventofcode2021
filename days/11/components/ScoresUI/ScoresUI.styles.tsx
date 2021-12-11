@@ -14,7 +14,7 @@ export const ScoresTitle = styled.dt`
   font-size: 25px;
 `
 interface IScoresValueProps {
-  color: string
+  color?: string
 }
 export const ScoresValue = styled.dd<IScoresValueProps>`
   margin: 0;
