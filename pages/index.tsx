@@ -2,5 +2,5 @@ import HomeLayout from 'layouts/HomeLayout'
 import type { NextPage } from 'next'
 import React from 'react'
 
-const Home: NextPage = () => <HomeLayout availableDays={[9, 10, 11]} />
+const Home: NextPage = () => <HomeLayout availableDays={[9, 10, 11, 12]} />
 export default Home
