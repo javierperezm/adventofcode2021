@@ -1,5 +1,5 @@
+import Matrix from 'lib/Matrix'
 import { IPoint, NumbersMatrix } from 'lib/types'
-import { Matrix } from './Matrix'
 
 export class Stepper {
   matrix: Matrix
@@ -46,7 +46,6 @@ export class Stepper {
     }
   }
 
-  getMatrixData = (): NumbersMatrix => this.matrix.data.map((val) => val)
   getMatrixSize = (): number => this.matrix.size
 
   static isPointIncluded = (point: IPoint, points: IPoint[]) => {

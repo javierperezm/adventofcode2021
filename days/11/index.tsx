@@ -37,7 +37,6 @@ const Day11: NextPage = () => {
     const interval = setInterval(() => {
       const stepper = new Stepper(matrixData)
       const stepFlashes = stepper.nextStep()
-      setMatrix(stepper.getMatrixData())
 
       newScores = {
         steps: newScores.steps + 1,

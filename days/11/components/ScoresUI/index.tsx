@@ -1,10 +1,10 @@
+import { ScoresList, ScoresTitle, ScoresValue } from 'components/Scores'
 import { IScores } from 'days/11/lib/IScores'
 import FireworkIcon from 'icons/FireworkIcon'
 import FlashIcon from 'icons/FlashIcon'
 import HundredIcon from 'icons/HundredIcon'
 import StepsIcon from 'icons/StepsIcon'
 import { colors } from 'styles/theme'
-import { ScoresList, ScoresTitle, ScoresValue } from './ScoresUI.styles'
 
 const ScoresUI = ({ scores }: { scores: IScores }) => {
   return (

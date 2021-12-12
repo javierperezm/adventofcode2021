@@ -1,6 +1,6 @@
 import { IPoint, NumbersMatrix } from 'lib/types'
 
-export class Matrix {
+export default class Matrix {
   data: NumbersMatrix
 
   constructor(data: NumbersMatrix) {
@@ -35,6 +35,8 @@ export class Matrix {
   isValid = ({ x, y }: IPoint): boolean => {
     return x >= 0 && y >= 0 && x < this.width && y < this.height
   }
+
+  clone = (): NumbersMatrix => this.data.map((val) => val)
 
   get width(): number {
     return this.height ? this.data[0].length : 0
