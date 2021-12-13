@@ -1,9 +1,10 @@
+import Footer from 'components/Footer'
 import Head from 'next/head'
 import Link from 'next/link'
 import {
   Calendar,
   CalendarDay,
-  Footer,
+  Container,
   HomeTitle,
   Main,
 } from './HomeLayout.styles'
@@ -13,7 +14,7 @@ interface IHomeLayoutProps {
 }
 const HomeLayout = ({ availableDays }: IHomeLayoutProps) => {
   return (
-    <div>
+    <Container>
       <Head>
         <title>Advent Of Code 2021 - Javier Pérez</title>
         <meta name="description" content="Advent Of Code 2021 - Javier Pérez" />
@@ -48,23 +49,8 @@ const HomeLayout = ({ availableDays }: IHomeLayoutProps) => {
         </Calendar>
       </Main>
 
-      <Footer>
-        <h4>
-          2021{' '}
-          <a
-            href="https://github.com/javierperezm/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Javier Pérez
-          </a>
-        </h4>
-        <h6>
-          nice icons from <a href="https://www.freepik.com/">freepik</a>&nbsp;|
-          made with love from &#127464;&#127469;
-        </h6>
-      </Footer>
-    </div>
+      <Footer />
+    </Container>
   )
 }
 

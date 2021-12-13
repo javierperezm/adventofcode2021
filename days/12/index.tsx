@@ -1,23 +1,45 @@
-import ActionButton from 'components/ActionButton'
-import ChallengeLayout from 'layouts/ChallengeLayout'
-import { loadFile } from 'lib/loadFile'
+import Loading from 'components/Loading'
+import ChallengePageLayout from 'layouts/ChallengePageLayout'
 import { NextPage } from 'next'
-import { MouseEventHandler, useEffect, useState } from 'react'
+import { useState } from 'react'
+import CavesPathsCanvas from './components/CavesPathsCanvas'
+import dataLoader from './lib/dataLoader'
+import { ICaveNodesList, IScores } from './lib/types'
 
 const Day12: NextPage = () => {
-  useEffect(() => {
-    loadFile('/12.txt', (data) => {})
-  }, [])
+  const [nodes, setNodes] = useState<ICaveNodesList>()
+  const [scores, setScores] = useState<IScores>({
+    part1: 0,
+    part2: 0,
+  })
 
-  const handleStartClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.preventDefault()
-    ;(e.target as HTMLButtonElement).disabled = true
+  const launchWorker = (exception: boolean, pathsPerMessage: number) => {
+    setTimeout(() => {
+      const worker = new Worker('./workers/12.js')
+      worker.onmessage = (msg) => {
+        setScores((prevState) => ({
+          part1: msg.data.exception ? prevState.part1 : msg.data.paths,
+          part2: msg.data.exception ? msg.data.paths : prevState.part2,
+        }))
+      }
+      worker.postMessage({ nodes, exception, pathsPerMessage })
+    }, 0)
+  }
+
+  const handleStartClick = () => {
+    launchWorker(false, 1)
+    launchWorker(true, 37)
   }
 
   return (
-    <ChallengeLayout day={12} title="Passage Pathing" canvas={<h1>TODO</h1>}>
-      <ActionButton onClick={handleStartClick}>START</ActionButton>
-    </ChallengeLayout>
+    <ChallengePageLayout
+      day={12}
+      title="Passage Pathing"
+      onRun={handleStartClick}
+      onLoadFile={(data) => setNodes(dataLoader(data))}
+    >
+      {nodes ? <CavesPathsCanvas scores={scores} /> : <Loading />}
+    </ChallengePageLayout>
   )
 }
 

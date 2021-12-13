@@ -1,7 +1,7 @@
 import ActionButton from 'components/ActionButton'
 import Loading from 'components/Loading'
 import ChallengeLayout from 'layouts/ChallengeLayout'
-import { loadFile } from 'lib/loadFile'
+import loadFile from 'lib/loadFile'
 import { NumbersMatrix } from 'lib/types'
 import { NextPage } from 'next'
 import { MouseEventHandler, useEffect, useState } from 'react'

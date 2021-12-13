@@ -12,3 +12,8 @@ export interface IPoint {
 }
 
 export type NumbersMatrix = number[][]
+
+export interface ISize {
+  width: number
+  height: number
+}

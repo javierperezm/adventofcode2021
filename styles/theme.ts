@@ -21,4 +21,5 @@ export const colors = {
   hoverLink: '#99ff99',
   star: '#ffff66',
   errorText: '#ff0000',
+  disabledText: '#000000',
 }

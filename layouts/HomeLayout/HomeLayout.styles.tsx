@@ -1,18 +1,25 @@
 import styled from 'styled-components'
 
-export const HomeTitle = styled.h1`
+export const Container = styled.div`
   text-align: center;
-  margin: 25px 0;
+  width: 500px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 `
 
+export const HomeTitle = styled.h1`
+  margin: 0 0 50px;
+`
+
+/* dowStart: */
 /* 1: 1st is monday */
 /* 2: 1st is tuesday */
 export const Calendar = styled.div<{ dowStart: number }>`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  margin: 0 auto;
-  max-width: 750px;
-  width: 75%;
 
   & span:first-child {
     grid-column: ${(p) => p.dowStart};
@@ -20,19 +27,8 @@ export const Calendar = styled.div<{ dowStart: number }>`
 `
 
 export const CalendarDay = styled.span`
-  text-align: center;
   font-size: 1.5em;
-  padding: 10px 5px;
+  padding: 15px 5px;
 `
 
-export const Main = styled.main`
-  width: 600px;
-  margin: 0 auto;
-`
-
-export const Footer = styled.footer`
-  width: 600px;
-  margin: 0 auto;
-  padding: 25px 0;
-  text-align: center;
-`
+export const Main = styled.main``

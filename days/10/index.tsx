@@ -1,6 +1,6 @@
 import ActionButton from 'components/ActionButton'
 import ChallengeLayout from 'layouts/ChallengeLayout'
-import { loadFile } from 'lib/loadFile'
+import loadFile from 'lib/loadFile'
 import type { NextPage } from 'next'
 import { MouseEventHandler, useEffect, useState } from 'react'
 import ChunksCanvas from './components/ChunkCanvas'

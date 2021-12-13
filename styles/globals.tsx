@@ -2,6 +2,11 @@ import { createGlobalStyle } from 'styled-components'
 import { colors } from './theme'
 
 export const GlobalStyle = createGlobalStyle`
+@font-face {
+  font-family: 'Digital Mono';
+  src:  url('/fonts/digital-7-mono.ttf');
+}
+
 html,
 body {
   padding: 0;
