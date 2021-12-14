@@ -17,3 +17,11 @@ export interface ISize {
   width: number
   height: number
 }
+
+export interface IStringStringMap {
+  [key: string]: string
+}
+
+export interface IStringNumberMap {
+  [key: string]: number
+}

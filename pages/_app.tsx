@@ -1,8 +1,17 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import { GlobalStyle } from 'styles/globals'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+  useEffect(() => {
+    ;(window || globalThis).addEventListener('keydown', (e) => {
+      e.key === 'Escape' && router.push('/')
+    })
+  }, [])
+
   return (
     <>
       <Head>

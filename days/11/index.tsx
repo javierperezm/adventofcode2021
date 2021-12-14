@@ -1,6 +1,7 @@
 import ActionButton from 'components/ActionButton'
 import Loading from 'components/Loading'
 import ChallengeLayout from 'layouts/ChallengeLayout'
+import ChallengePageLayout from 'layouts/ChallengePageLayout'
 import loadFile from 'lib/loadFile'
 import { NumbersMatrix } from 'lib/types'
 import { NextPage } from 'next'
@@ -21,16 +22,7 @@ const Day11: NextPage = () => {
     stepsAllFlashed: 0,
   })
 
-  useEffect(() => {
-    loadFile('/11.txt', (data) => {
-      setMatrix(data.map((line) => line.split('').map((val) => parseInt(val))))
-    })
-  }, [])
-
-  const handleStartClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.preventDefault()
-    ;(e.target as HTMLButtonElement).disabled = true
-
+  const handleOnRun = () => {
     let newScores: IScores = scores
     let matrixData: NumbersMatrix = matrix as NumbersMatrix
 
@@ -62,19 +54,22 @@ const Day11: NextPage = () => {
   }
 
   return (
-    <ChallengeLayout
+    <ChallengePageLayout
       day={11}
       title="Dumbo Octopus"
-      canvas={
-        matrix ? (
-          <OctopusMatrixCanvas matrix={matrix} scores={scores} />
-        ) : (
-          <Loading />
+      onLoadFile={(data) =>
+        setMatrix(
+          data.map((line) => line.split('').map((val) => parseInt(val)))
         )
       }
+      onRun={handleOnRun}
     >
-      <ActionButton onClick={handleStartClick}>START</ActionButton>
-    </ChallengeLayout>
+      {matrix ? (
+        <OctopusMatrixCanvas matrix={matrix} scores={scores} />
+      ) : (
+        <Loading />
+      )}
+    </ChallengePageLayout>
   )
 }
 

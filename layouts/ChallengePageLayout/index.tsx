@@ -1,9 +1,9 @@
 import Footer from 'components/Footer'
 import RunButton from 'components/RunButton'
-import PlayIcon from 'icons/PlayIcon'
 import loadFile from 'lib/loadFile'
 import { IOnLoad } from 'lib/types'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { MouseEventHandler, ReactElement, useEffect } from 'react'
 import { Container, ItemCanvas, ItemTitle } from './ChallengePageLayout.styles'
 
@@ -26,6 +26,7 @@ const ChallengePageLayout = ({
   onLoadFile,
   children,
 }: IChallengePageLayoutProps) => {
+  const router = useRouter()
   useEffect(() => {
     loadFile(`/data/${day}.txt`, onLoadFile)
   }, [])

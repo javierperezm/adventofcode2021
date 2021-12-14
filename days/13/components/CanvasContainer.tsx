@@ -26,7 +26,7 @@ const CanvasContainer = ({ points, canvasSize }: ICanvasContainerProps) => {
       const pixelHeight = Math.floor(canvasSize.height / newSize.height)
       const pixelSize = Math.min(pixelWidth, pixelHeight)
 
-      // TODO: center
+      // TODO: move to center & zoom
 
       points.forEach((point) => {
         ctx.beginPath()

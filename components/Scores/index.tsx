@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 export const ScoresList = styled.dl`
   margin: 0 0 25px 0;
-  height: 25px;
   display: flex;
+  flex-wrap: wrap;
   gap: 25px;
+  width: 430px;
 `
 export const ScoresTitle = styled.dt`
   margin: 0;
