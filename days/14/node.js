@@ -1,4 +1,3 @@
-const { text } = require('stream/consumers')
 const readfile = require('../../lib/readfile')
 const dataFile = './public/data/14.txt'
 

@@ -1,10 +1,8 @@
-import ActionButton from 'components/ActionButton'
 import Loading from 'components/Loading'
-import ChallengeLayout from 'layouts/ChallengeLayout'
-import loadFile from 'lib/loadFile'
+import ChallengePageLayout from 'layouts/ChallengePageLayout'
 import { NumbersMatrix } from 'lib/types'
 import { NextPage } from 'next'
-import { MouseEventHandler, useEffect, useState } from 'react'
+import { useState } from 'react'
 import BasinMatrixCanvas from './components/BasinMatrixCanvas'
 import BasinsManager from './lib/BasinsManager'
 import IScores from './lib/IScores'
@@ -16,16 +14,7 @@ const Day9: NextPage = () => {
     threeLargestBasins: 0,
   })
 
-  useEffect(() => {
-    loadFile('/09.txt', (data) => {
-      setData(data.map((line) => line.split('').map((val) => parseInt(val))))
-    })
-  }, [])
-
-  const handleStartClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.preventDefault()
-    ;(e.target as any).disabled = true
-
+  const handleOnRun = () => {
     const newScores: IScores = {
       riskLevelsSum: 0,
       threeLargestBasins: 0,
@@ -56,15 +45,16 @@ const Day9: NextPage = () => {
   }
 
   return (
-    <ChallengeLayout
+    <ChallengePageLayout
       day={9}
       title="Smoke Basin"
-      canvas={
-        data ? <BasinMatrixCanvas matrix={data} scores={scores} /> : <Loading />
+      onLoadFile={(data) =>
+        setData(data.map((line) => line.split('').map((val) => parseInt(val))))
       }
+      onRun={handleOnRun}
     >
-      <ActionButton onClick={handleStartClick}>START</ActionButton>
-    </ChallengeLayout>
+      {data ? <BasinMatrixCanvas matrix={data} scores={scores} /> : <Loading />}
+    </ChallengePageLayout>
   )
 }
 
